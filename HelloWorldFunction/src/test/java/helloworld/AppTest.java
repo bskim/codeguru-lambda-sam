@@ -9,7 +9,8 @@ public class AppTest {
   @Test
   public void successfulResponse() {
     App app = new App();
-    GatewayResponse result = (GatewayResponse) app.handleRequest(null, null);
+    GatewayResponse result = (GatewayResponse) app.myHandlerFunction(null, null);
+    //result =  app.requestHandler(null, null);
     assertEquals(result.getStatusCode(), 200);
     assertEquals(result.getHeaders().get("Content-Type"), "application/json");
     String content = result.getBody();

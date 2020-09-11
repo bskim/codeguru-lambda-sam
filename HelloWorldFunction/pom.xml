@@ -20,26 +20,80 @@
         <dynamodblocal.version>1.11.119</dynamodblocal.version>
     </properties>
     <dependencies>
-        <dependency>
-          <groupId>com.amazonaws</groupId>
-          <artifactId>aws-lambda-java-core</artifactId>
-          <version>1.2.0</version>
-        </dependency>
-        <dependency>
-          <groupId>com.amazonaws</groupId>
-          <artifactId>codeguru-profiler-java-agent</artifactId>
-          <version>1.0.1</version>
-        </dependency>
-        <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.12</version>
-          <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-dynamodb</artifactId>
-        </dependency>
+      <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>auth</artifactId>
+      </dependency>    
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-lambda-java-core</artifactId>
+        <version>1.2.1</version>
+      </dependency>
+      <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>regions</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-lambda-java-log4j2</artifactId>
+        <version>1.2.0</version>
+      </dependency>      
+      <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>aws-core</artifactId>
+      </dependency>        
+      <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>apache-client</artifactId>
+      </dependency>   
+      <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>protocol-core</artifactId>
+      </dependency>   
+      <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>aws-json-protocol</artifactId>
+      </dependency>  
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.7</version>
+      </dependency>                  
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.1.2</version>
+          <exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+            </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>codeguru-profiler-java-agent</artifactId>
+        <version>1.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-dynamodb</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.amazon.ion</groupId>
+        <artifactId>ion-java</artifactId>
+        <version>1.7.1</version>
+      </dependency>
+      <dependency>
+        <groupId>software.amazon.awssdk</groupId>
+        <artifactId>lambda</artifactId>
+      </dependency>
     </dependencies>
     <dependencyManagement>
       <dependencies>
@@ -47,6 +101,13 @@
           <groupId>com.amazonaws</groupId>
           <artifactId>aws-java-sdk-bom</artifactId>
           <version>1.11.859</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>bom</artifactId>
+          <version>2.14.14</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>

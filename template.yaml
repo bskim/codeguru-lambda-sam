@@ -19,12 +19,19 @@ Resources:
       Runtime: java11
       Policies:
         - AmazonDynamoDBFullAccess
+        - Statement:
+          - Sid: "codeguruprofileragentpolicy"
+            Effect: Allow
+            Action: 
+              - codeguru-profiler:ConfigureAgent
+              - codeguru-profiler:PostAgentProfile
+            Resource: "arn:aws:codeguru-profiler:us-west-2:079760242939:profilingGroup/DemoProfiler"
       MemorySize: 512
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
           PARAM1: VALUE
           AWS_CODEGURU_PROFILER_GROUP_ARN: arn:aws:codeguru-profiler:us-west-2:079760242939:profilingGroup/DemoProfiler
-          AWS_CODEGURU_PROFILER_ENABLED: TRUE
+          AWS_CODEGURU_PROFILER_ENABLED: "TRUE"
       Events:
         HelloWorld:
           Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
